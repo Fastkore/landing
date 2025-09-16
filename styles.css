@@ -528,6 +528,92 @@ ul li::before {
   border: 1px solid rgba(255, 255, 255, 0.18);
 }
 
+.audience {
+  position: relative;
+  overflow: hidden;
+}
+
+.audience::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 20% 0%, rgba(77, 243, 255, 0.12), transparent 55%),
+    radial-gradient(circle at 80% 85%, rgba(127, 92, 255, 0.12), transparent 55%);
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.audience > * {
+  position: relative;
+  z-index: 1;
+}
+
+.audience-grid {
+  margin-top: 56px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 32px;
+}
+
+.audience-card {
+  padding: 36px 32px;
+  border-radius: var(--radius-lg);
+  background: rgba(10, 16, 36, 0.82);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(18px);
+  box-shadow: var(--shadow-soft);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.audience-card::before {
+  content: "";
+  position: absolute;
+  inset: -70px -20px auto auto;
+  width: 180px;
+  height: 180px;
+  background: radial-gradient(circle, rgba(77, 243, 255, 0.28), transparent 70%);
+  opacity: 0.7;
+}
+
+.audience-card > * {
+  position: relative;
+  z-index: 1;
+}
+
+.audience-tag {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(77, 243, 255, 0.12);
+  border: 1px solid rgba(77, 243, 255, 0.35);
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+
+.audience-card ul {
+  margin-top: 4px;
+}
+
+.audience-note {
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  font-size: 0.95rem;
+  color: var(--text-muted);
+}
+
+.audience-note strong {
+  color: var(--accent);
+}
+
 .insights {
   padding-top: 40px;
   padding-bottom: 120px;
@@ -920,6 +1006,7 @@ ul li::before {
   }
 
   .feature-grid,
+  .audience-grid,
   .insight-grid,
   .process-grid,
   .pricing-grid {
@@ -1003,6 +1090,7 @@ ul li::before {
   }
 
   .feature-grid,
+  .audience-grid,
   .insight-grid,
   .process-grid,
   .pricing-grid,
