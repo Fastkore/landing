@@ -1,3 +1,16 @@
 {
-    "chatgpt.commentCodeLensEnabled": true
+  // Полное отключение Workspace Trust
+  "security.workspace.trust.enabled": false,
+
+  // Отключаем подтверждение shell execution для разных расширений
+  "codegpt.confirmShellExecution": false,
+  "codex.confirmShellExecution": false,
+  "chat.commandExecution.confirmation": "never",
+  "terminal.integrated.allowProcessExecution": true,
+
+  // Для ChatGPT расширения
+  "chatgpt.commentCodeLensEnabled": true,
+  "chatgpt.openOnStartup": true,
+  "chat.tools.autoApprove": true
+
 }
