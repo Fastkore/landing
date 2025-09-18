@@ -268,7 +268,8 @@ ul li::before {
 .hero {
   position: relative;
   overflow: hidden;
-  padding-top: 160px;
+  padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .hero::before {
@@ -322,7 +323,7 @@ ul li::before {
 
 .hero-media {
   position: relative;
-  min-height: 460px;
+  min-height: 520px;
 }
 
 .orb {
@@ -333,28 +334,31 @@ ul li::before {
 }
 
 .orb-1 {
-  width: 320px;
-  height: 320px;
-  background: radial-gradient(circle at 30% 30%, rgba(77, 243, 255, 0.8), rgba(10, 16, 36, 0.1));
-  top: 20px;
-  right: 60px;
+  width: 360px;
+  height: 360px;
+  background: radial-gradient(circle at 35% 25%, rgba(77, 243, 255, 0.85), rgba(10, 16, 36, 0.08));
+  top: -40px;
+  right: 0;
   box-shadow: var(--shadow-soft);
   opacity: 0.7;
 }
 
 .orb-2 {
-  width: 200px;
-  height: 200px;
-  background: radial-gradient(circle at 70% 30%, rgba(127, 92, 255, 0.8), rgba(10, 16, 36, 0.1));
-  bottom: 40px;
-  left: 40px;
+  width: 220px;
+  height: 220px;
+  background: radial-gradient(circle at 60% 35%, rgba(127, 92, 255, 0.85), rgba(10, 16, 36, 0.08));
+  bottom: -10px;
+  left: 60px;
   box-shadow: var(--shadow-soft);
   opacity: 0.6;
 }
 
 .hero-panel {
   position: absolute;
-  inset: auto 40px 40px auto;
+  top: auto;
+  left: auto;
+  right: -16px;
+  bottom: -8px;
   width: 320px;
   padding: 24px;
   border-radius: var(--radius-lg);
@@ -416,13 +420,14 @@ ul li::before {
 }
 
 .orbit-card--top {
-  top: 40px;
-  left: -10px;
+  top: -24px;
+  left: auto;
+  right: 120px;
 }
 
 .orbit-card--bottom {
-  bottom: 80px;
-  right: -20px;
+  bottom: 120px;
+  left: -30px;
 }
 
 .trust {
@@ -432,9 +437,25 @@ ul li::before {
 
 .trust-inner {
   display: grid;
-  gap: 32px;
+  gap: 40px;
   justify-items: center;
   text-align: center;
+}
+
+.trust-copy {
+  display: grid;
+  gap: 16px;
+  justify-items: center;
+  text-align: center;
+}
+
+.trust-title {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+  font-size: clamp(1.8rem, 3.4vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--text-primary);
 }
 
 .trust-eyebrow {
@@ -444,28 +465,65 @@ ul li::before {
   text-transform: uppercase;
 }
 
-.trust-logos {
-  display: flex;
-  gap: 40px;
-  flex-wrap: wrap;
-  justify-content: center;
-  color: var(--text-muted);
-  font-size: 0.95rem;
-  letter-spacing: 0.08em;
-}
-
 .trust-highlight {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 8px;
+  display: grid;
+  gap: 12px;
+  justify-items: center;
+  max-width: 460px;
 }
 
 .trust-highlight strong {
-  font-size: 3rem;
+  font-size: clamp(2.6rem, 6vw, 3.4rem);
   background: var(--gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+}
+
+.trust-highlight p {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+.trust-logos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 32px 48px;
+  width: 100%;
+  align-items: center;
+  justify-items: center;
+}
+
+.trust-logos li {
+  margin: 0;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(20, 26, 52, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  backdrop-filter: blur(6px);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+  min-height: 96px;
+  opacity: 0.85;
+}
+
+.trust-logos li::before {
+  content: none;
+}
+
+.trust-logos li:hover {
+  transform: translateY(-4px);
+  opacity: 1;
+}
+
+.trust-logos img {
+  width: 100%;
+  max-width: 160px;
+  height: auto;
+  display: block;
 }
 
 .section-heading {
@@ -622,7 +680,7 @@ ul li::before {
 .insight-grid {
   margin-top: 56px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
   gap: 32px;
 }
 
@@ -997,6 +1055,22 @@ ul li::before {
 }
 
 @media (max-width: 1100px) {
+  .hero-panel {
+    right: 0;
+    bottom: -16px;
+  }
+
+  .orbit-card--top {
+    top: -10px;
+    right: 70px;
+  }
+
+  .orbit-card--bottom {
+    bottom: 90px;
+    left: -10px;
+  }
+
+
   .section-heading {
     grid-template-columns: minmax(0, 1fr);
   }
@@ -1073,6 +1147,16 @@ ul li::before {
     margin-top: 40px;
     min-height: 420px;
   }
+  .trust-logos {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 24px 28px;
+  }
+
+  .trust-logos li {
+    min-height: 88px;
+    padding: 16px 18px;
+  }
+
 }
 
 @media (max-width: 700px) {
@@ -1135,6 +1219,31 @@ ul li::before {
   .footer-links {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+  .trust-inner {
+    gap: 28px;
+  }
+
+  .trust-copy {
+    gap: 12px;
+  }
+
+  .trust-logos {
+    gap: 20px 16px;
+  }
+
+  .trust-logos li {
+    padding: 14px 16px;
+    min-height: 84px;
+  }
+
+  .trust-highlight p {
+    font-size: 0.95rem;
+  }
+
+  .trust-title {
+    font-size: clamp(1.6rem, 6vw, 2.1rem);
+  }
+
 }
 
 @media (max-width: 480px) {
