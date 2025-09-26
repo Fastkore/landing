@@ -60,6 +60,118 @@ section {
   padding: 120px 0;
 }
 
+
+.interface-bridge {
+  position: relative;
+  padding: clamp(48px, 8vw, 72px) 0;
+  background: linear-gradient(130deg, rgba(77, 243, 255, 0.08) 0%, rgba(127, 92, 255, 0.18) 48%, rgba(255, 114, 219, 0.12) 100%);
+  overflow: hidden;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+.interface-bridge::before,
+.interface-bridge::after {
+  content: "";
+  position: absolute;
+  inset: -40%;
+  background: radial-gradient(circle at 20% 20%, rgba(77, 243, 255, 0.22), transparent 55%),
+    radial-gradient(circle at 80% 80%, rgba(255, 114, 219, 0.2), transparent 60%);
+  opacity: 0.65;
+  filter: blur(12px);
+  transform: scale(1.05);
+  animation: interface-bridge-flow 18s ease-in-out infinite alternate;
+}
+
+.interface-bridge::after {
+  inset: -60%;
+  opacity: 0.4;
+  filter: blur(30px);
+  animation-duration: 28s;
+  animation-direction: alternate-reverse;
+}
+
+.interface-bridge-inner {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
+  align-items: center;
+  gap: clamp(24px, 5vw, 44px);
+}
+
+.interface-bridge-copy {
+  margin: 0;
+  font-size: clamp(1rem, 2vw, 1.25rem);
+  color: var(--text-secondary);
+  letter-spacing: 0.01em;
+}
+
+.interface-bridge-copy strong {
+  color: var(--text-primary);
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.interface-bridge-media {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.interface-bridge-frame {
+  position: relative;
+  width: min(100%, 420px);
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-lg);
+  background: linear-gradient(140deg, rgba(36, 48, 96, 0.75) 0%, rgba(41, 199, 255, 0.45) 40%, rgba(127, 92, 255, 0.55) 70%, rgba(255, 114, 219, 0.55) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: var(--shadow-soft);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 0.95rem;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  backdrop-filter: blur(8px);
+}
+
+.interface-bridge-frame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0.15), transparent 40%, rgba(255, 255, 255, 0.25) 60%, transparent 80%);
+  mix-blend-mode: screen;
+  background-size: 200% 200%;
+  animation: interface-bridge-shine 6s ease-in-out infinite;
+}
+
+.interface-bridge-frame span {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes interface-bridge-flow {
+  0% {
+    transform: scale(1) rotate(0deg);
+  }
+  100% {
+    transform: scale(1.08) rotate(2deg);
+  }
+}
+
+@keyframes interface-bridge-shine {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
 h1,
 h2,
 h3,
@@ -1055,6 +1167,18 @@ ul li::before {
 }
 
 @media (max-width: 1100px) {
+  .interface-bridge-inner {
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  }
+
+  .interface-bridge-media {
+    justify-content: center;
+  }
+
+  .interface-bridge-frame {
+    width: min(100%, 360px);
+  }
+
   .hero-panel {
     right: 0;
     bottom: -16px;
@@ -1097,6 +1221,24 @@ ul li::before {
 }
 
 @media (max-width: 900px) {
+  .interface-bridge-inner {
+    grid-template-columns: minmax(0, 1fr);
+    text-align: center;
+    gap: 24px;
+  }
+
+  .interface-bridge-media {
+    justify-content: center;
+  }
+
+  .interface-bridge-copy {
+    font-size: 1rem;
+  }
+
+  .interface-bridge-frame {
+    width: min(100%, 320px);
+  }
+
   .header-inner {
     padding: 18px 24px;
   }
@@ -1162,6 +1304,10 @@ ul li::before {
 @media (max-width: 700px) {
   section {
     padding: 90px 0;
+  }
+
+  .interface-bridge {
+    padding: 56px 0;
   }
 
   .container {
@@ -1253,6 +1399,10 @@ ul li::before {
 
   .section-heading {
     gap: 18px;
+  }
+
+  .interface-bridge-frame {
+    width: 100%;
   }
 
   .hero {
