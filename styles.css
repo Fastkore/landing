@@ -61,90 +61,105 @@ section {
 }
 
 
+
 .interface-bridge {
   position: relative;
-  padding: clamp(48px, 8vw, 72px) 0;
-  background: linear-gradient(130deg, rgba(77, 243, 255, 0.08) 0%, rgba(127, 92, 255, 0.18) 48%, rgba(255, 114, 219, 0.12) 100%);
+  padding: clamp(96px, 12vw, 140px) 0;
+  background: radial-gradient(160% 140% at 50% -20%, rgba(77, 243, 255, 0.18) 0%, rgba(127, 92, 255, 0.12) 38%, rgba(4, 5, 16, 0.94) 72%), #03040d;
   overflow: hidden;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  border-bottom: 1px solid rgba(255, 255, 255, 0.04);
 }
 
-.interface-bridge::before,
+.interface-bridge::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, rgba(77, 243, 255, 0.08), rgba(127, 92, 255, 0.16), rgba(255, 114, 219, 0.12));
+  mix-blend-mode: screen;
+  opacity: 0.55;
+  pointer-events: none;
+}
+
 .interface-bridge::after {
   content: "";
   position: absolute;
-  inset: -40%;
-  background: radial-gradient(circle at 20% 20%, rgba(77, 243, 255, 0.22), transparent 55%),
-    radial-gradient(circle at 80% 80%, rgba(255, 114, 219, 0.2), transparent 60%);
-  opacity: 0.65;
-  filter: blur(12px);
-  transform: scale(1.05);
-  animation: interface-bridge-flow 18s ease-in-out infinite alternate;
-}
-
-.interface-bridge::after {
-  inset: -60%;
-  opacity: 0.4;
-  filter: blur(30px);
-  animation-duration: 28s;
-  animation-direction: alternate-reverse;
+  inset: 0;
+  background: radial-gradient(120% 140% at 50% 120%, rgba(0, 0, 0, 0.75), transparent 60%);
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .interface-bridge-inner {
   position: relative;
   z-index: 1;
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 360px);
-  align-items: center;
-  gap: clamp(24px, 5vw, 44px);
-}
-
-.interface-bridge-copy {
-  margin: 0;
-  font-size: clamp(1rem, 2vw, 1.25rem);
-  color: var(--text-secondary);
-  letter-spacing: 0.01em;
-}
-
-.interface-bridge-copy strong {
-  color: var(--text-primary);
-  font-weight: 600;
-  margin-right: 8px;
-}
-
-.interface-bridge-media {
   display: flex;
-  justify-content: flex-end;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(28px, 6vw, 52px);
+  text-align: center;
+}
+
+.interface-bridge-title {
+  margin: 0;
+  font-size: clamp(2rem, 4.5vw, 2.9rem);
+  color: var(--text-primary);
+}
+
+.interface-bridge-subtitle {
+  margin: 0;
+  max-width: min(640px, 70%);
+  color: var(--text-secondary);
+  font-size: clamp(1rem, 2.2vw, 1.2rem);
+  line-height: 1.6;
+}
+
+.interface-bridge-glow {
+  position: relative;
+  width: min(100%, 980px);
+  padding: clamp(28px, 5vw, 48px);
+  border-radius: clamp(10px, 2vw, 20px);
+  background: linear-gradient(120deg, rgba(77, 243, 255, 0.5) 0%, rgba(127, 92, 255, 0.6) 45%, rgba(255, 168, 72, 0.52) 100%);
+  box-shadow: 0 40px 140px rgba(0, 0, 0, 0.6);
+  overflow: hidden;
+}
+
+.interface-bridge-glow::before {
+  content: "";
+  position: absolute;
+  inset: -30%;
+  background: radial-gradient(circle at 25% 30%, rgba(77, 243, 255, 0.42), transparent 55%),
+    radial-gradient(circle at 75% 70%, rgba(255, 114, 219, 0.36), transparent 60%);
+  filter: blur(40px);
+  opacity: 0.7;
+  pointer-events: none;
 }
 
 .interface-bridge-frame {
   position: relative;
-  width: min(100%, 420px);
+  width: min(78%, 680px);
+  margin: 0 auto;
   aspect-ratio: 16 / 9;
-  border-radius: var(--radius-lg);
-  background: linear-gradient(140deg, rgba(36, 48, 96, 0.75) 0%, rgba(41, 199, 255, 0.45) 40%, rgba(127, 92, 255, 0.55) 70%, rgba(255, 114, 219, 0.55) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  box-shadow: var(--shadow-soft);
-  overflow: hidden;
+  border-radius: clamp(6px, 1.2vw, 12px);
+  background: linear-gradient(150deg, rgba(3, 6, 18, 0.95), rgba(12, 18, 40, 0.9));
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
   display: flex;
   align-items: center;
   justify-content: center;
-  color: rgba(255, 255, 255, 0.82);
-  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.78);
+  font-size: 0.88rem;
   text-transform: uppercase;
-  letter-spacing: 0.16em;
-  backdrop-filter: blur(8px);
+  letter-spacing: 0.18em;
+  overflow: hidden;
 }
 
 .interface-bridge-frame::after {
   content: "";
   position: absolute;
-  inset: 0;
-  background: linear-gradient(120deg, rgba(255, 255, 255, 0.15), transparent 40%, rgba(255, 255, 255, 0.25) 60%, transparent 80%);
-  mix-blend-mode: screen;
-  background-size: 200% 200%;
-  animation: interface-bridge-shine 6s ease-in-out infinite;
+  inset: -20%;
+  background: linear-gradient(120deg, rgba(255, 255, 255, 0) 20%, rgba(255, 255, 255, 0.45) 45%, rgba(255, 255, 255, 0) 75%);
+  transform: translateX(-60%);
+  animation: interface-bridge-shine 8s ease-in-out infinite;
+  opacity: 0.7;
 }
 
 .interface-bridge-frame span {
@@ -152,26 +167,20 @@ section {
   z-index: 1;
 }
 
-@keyframes interface-bridge-flow {
+@keyframes interface-bridge-shine {
   0% {
-    transform: scale(1) rotate(0deg);
+    transform: translateX(-60%);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.85;
   }
   100% {
-    transform: scale(1.08) rotate(2deg);
+    transform: translateX(60%);
+    opacity: 0;
   }
 }
 
-@keyframes interface-bridge-shine {
-  0% {
-    background-position: 0% 50%;
-  }
-  50% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
 h1,
 h2,
 h3,
@@ -1168,15 +1177,21 @@ ul li::before {
 
 @media (max-width: 1100px) {
   .interface-bridge-inner {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: clamp(24px, 7vw, 40px);
   }
 
-  .interface-bridge-media {
-    justify-content: center;
+  .interface-bridge-glow {
+    width: min(100%, 840px);
+    padding: clamp(24px, 5vw, 40px);
+    border-radius: clamp(10px, 2.6vw, 20px);
   }
 
   .interface-bridge-frame {
-    width: min(100%, 360px);
+    width: min(82%, 520px);
+  }
+
+  .interface-bridge-subtitle {
+    max-width: min(540px, 78%);
   }
 
   .hero-panel {
@@ -1221,22 +1236,27 @@ ul li::before {
 }
 
 @media (max-width: 900px) {
+  .interface-bridge {
+    padding: clamp(90px, 20vw, 130px) 0;
+  }
+
   .interface-bridge-inner {
-    grid-template-columns: minmax(0, 1fr);
-    text-align: center;
-    gap: 24px;
+    gap: 36px;
   }
 
-  .interface-bridge-media {
-    justify-content: center;
-  }
-
-  .interface-bridge-copy {
-    font-size: 1rem;
+  .interface-bridge-glow {
+    padding: clamp(22px, 6vw, 32px);
+    border-radius: clamp(8px, 4vw, 18px);
   }
 
   .interface-bridge-frame {
-    width: min(100%, 320px);
+    width: min(86%, 460px);
+    border-radius: clamp(6px, 2vw, 12px);
+  }
+
+  .interface-bridge-subtitle {
+    max-width: 92%;
+    font-size: 1rem;
   }
 
   .header-inner {
@@ -1307,7 +1327,21 @@ ul li::before {
   }
 
   .interface-bridge {
-    padding: 56px 0;
+    padding: 72px 0;
+  }
+
+  .interface-bridge-inner {
+    gap: 30px;
+  }
+
+  .interface-bridge-glow {
+    border-radius: 16px;
+    padding: 26px;
+  }
+
+  .interface-bridge-frame {
+    width: 90%;
+    border-radius: 10px;
   }
 
   .container {
@@ -1401,8 +1435,26 @@ ul li::before {
     gap: 18px;
   }
 
+  .interface-bridge {
+    padding: 60px 0;
+  }
+
+  .interface-bridge-title {
+    font-size: clamp(1.7rem, 9vw, 2.2rem);
+  }
+
+  .interface-bridge-subtitle {
+    font-size: 0.92rem;
+  }
+
+  .interface-bridge-glow {
+    padding: 18px;
+    border-radius: 16px;
+  }
+
   .interface-bridge-frame {
     width: 100%;
+    border-radius: 10px;
   }
 
   .hero {
