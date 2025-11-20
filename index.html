@@ -21,13 +21,17 @@
     <header class="site-header">
       <div class="container header-inner">
         <a class="logo" href="#hero">
-          <img
-            class="logo-image"
-            src="assets/logo.svg"
-            alt="Логотип FastKore"
-            width="48"
-            height="48"
-          />
+          <picture class="logo-picture">
+            <source srcset="assets/logo-orb.png" type="image/png" />
+            <img
+              class="logo-image"
+              src="assets/logo.svg"
+              alt="Логотип FastKore"
+              width="48"
+              height="48"
+              loading="lazy"
+            />
+          </picture>
           <span class="logo-text">
             <strong>FastKore</strong>
             <small>Digital Core</small>
@@ -58,13 +62,6 @@
       <section class="hero" id="hero">
         <div class="container hero-grid">
           <div class="hero-text">
-            <img
-              class="hero-logo"
-              src="assets/logo.svg"
-              alt="Логотип FastKore"
-              width="120"
-              height="120"
-            />
             <div class="eyebrow">Продуктовая платформа нового поколения</div>
             <h1>
               <span class="gradient-text">Цифровое ядро</span> для роста
@@ -96,12 +93,16 @@
           </div>
           <div class="hero-media">
             <div class="orb orb-1">
-              <img
-                class="orb-image"
-                src="assets/logo.svg"
-                alt=""
-                aria-hidden="true"
-              />
+              <picture>
+                <source srcset="assets/logo-orb.png" type="image/png" />
+                <img
+                  class="orb-image"
+                  src="assets/logo.svg"
+                  alt=""
+                  aria-hidden="true"
+                  loading="lazy"
+                />
+              </picture>
             </div>
             <div class="orb orb-2"></div>
             <div class="orbit-card orbit-card--top">
@@ -227,12 +228,12 @@
         <div class="container section-heading">
           <div>
             <div class="eyebrow">Возможности ядра</div>
-            <h2>Модульная архитектура для любого сценария роста</h2>
+            <h2>Конструктор интеграций с ИИ-ассистентами</h2>
           </div>
           <p>
-            Конструктор цифровых сервисов, объединяющий бизнес-логику, данные и аналитику.
-            Соберите индивидуальную экосистему из готовых блоков и подключите AI-инструменты
-            без сложной разработки.
+            Обученные ИИ-ассистенты пишут код под нашу платформу: подключают внешние сервисы,
+            API и шины данных без сложной кастомной разработки. Соберите экосистему из модулей,
+            а ассистенты доведут логику и интеграции до продакшн-качества.
           </p>
         </div>
         <div class="container feature-grid">
@@ -508,8 +509,11 @@
 
       <section class="interface-bridge" data-slot="platform-process">
         <div class="container interface-bridge-inner">
-          <h2 class="interface-bridge-title">Конструктор интеграций</h2>
-          <p class="interface-bridge-subtitle">Подключение внешних сервисов и API без сложного кода.</p>
+          <h2 class="interface-bridge-title">Конструктор интеграций с ИИ-ассистентами</h2>
+          <p class="interface-bridge-subtitle">
+            Обученные ассистенты пишут код и коннекторы под нашу платформу, подключая внешние сервисы и API
+            без сложного кода с вашей стороны.
+          </p>
           <div class="interface-bridge-glow">
             <div class="interface-bridge-frame">
               <span>Видео будет здесь</span>
@@ -773,13 +777,17 @@
       <div class="container footer-grid">
         <div>
           <a class="logo" href="#hero">
-            <img
-              class="logo-image"
-              src="assets/logo.svg"
-              alt="Логотип FastKore"
-              width="48"
-              height="48"
-            />
+            <picture class="logo-picture">
+              <source srcset="assets/logo-orb.png" type="image/png" />
+              <img
+                class="logo-image"
+                src="assets/logo.svg"
+                alt="Логотип FastKore"
+                width="48"
+                height="48"
+                loading="lazy"
+              />
+            </picture>
             <span class="logo-text">
               <strong>FastKore</strong>
               <small>Digital Core</small>
